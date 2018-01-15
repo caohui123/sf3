@@ -34,7 +34,7 @@ class User
     private $name;
 
     /**
-     * @ORM\OneToOne(targetEntity="Profile",mappedBy="user",cascade={"persist","remove"})
+     * @ORM\OneToOne(targetEntity="Profile",mappedBy="user",cascade={"persist","remove"})//remove 表示可以删除，all表示全部都会去影响
      * @ORM\JoinColumn(name="profile_id", referencedColumnName="id",nullable = false, onDelete="CASCADE")//nullable设置，如果不设置不能删除掉外键关系
      * @Assert\Type(type="AppBundle\Entity\Profile")
      */
