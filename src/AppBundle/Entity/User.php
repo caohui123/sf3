@@ -32,10 +32,10 @@ class User
      * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;
-    
+
     /**
-     * @ORM\OneToOne(targetEntity="Profile",mappedBy="user",cascade={"persist"})
-     * @ORM\JoinColumn(name="profile_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="Profile",mappedBy="user",cascade={"persist","remove"})
+     * @ORM\JoinColumn(name="profile_id", referencedColumnName="id",nullable = false, onDelete="CASCADE")//nullable设置，如果不设置不能删除掉外键关系
      * @Assert\Type(type="AppBundle\Entity\Profile")
      */
     private $profile;
