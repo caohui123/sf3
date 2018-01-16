@@ -1,8 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'layouts/admin.html.twig' %}
 
-{% block body %}
-    <h1>User creation</h1>
+ {% block subtitle %}
+     <h1>
+         新建用户
+         <small>User creation</small>
+     </h1>
+ {% endblock subtitle %}
 
+ {% block breadcrumb %}
+     <ol class="breadcrumb">
+         <li><a href="#"><i class="fa fa-dashboard"></i> 用户管理</a></li>
+         <li class="active">新建用户</li>
+     </ol>
+ {% endblock breadcrumb %}
+
+{% block content %}
     {{ form_start(form) }}
     {{ form_row(form) }}
     <input type="submit" value="Create"/>
