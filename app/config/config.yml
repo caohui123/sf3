@@ -10,7 +10,7 @@ parameters:
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -69,9 +69,48 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
 
+#easy_admin:
+#    site_name: 'ACME <em style="font-size: 80%;">Megacorp.</em>'
+#    design:
+#          menu: ['User']
+#    entities:
+#        - AppBundle\Entity\User
+
 # Twig Configuration
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     #resources: ['bootstrap_3_layout.html.twig']
     resources: ['bootstrap_3_horizontal_layout.html.twig']
+
+nelmio_api_doc:
+#    areas:
+#            path_patterns: [ ^/api ]
+    documentation:
+        info:
+            title: My App
+            description: This is an awesome app!
+            version: 1.0.0
+
+# Nelmio CORS Configuration
+nelmio_cors:
+    defaults:
+        allow_credentials: false
+        allow_origin: ['*']
+        allow_headers: ['*']
+        allow_methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+        max_age: 3600
+        hosts: []
+        origin_regex: false
+
+# FOSRest Configuration
+fos_rest:
+    body_listener: true
+    format_listener:
+        rules:
+            - { path: '^/', priorities: ['json'], fallback_format: json, prefer_extension: false }
+    param_fetcher_listener: true
+    view:
+        view_response_listener: 'force'
+        formats:
+            json: true

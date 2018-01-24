@@ -5,7 +5,11 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Book;
 use AppBundle\Entity\Profile;
 use AppBundle\Entity\User;
+use Doctrine\Common\Collections\ArrayCollection;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Swagger\Annotations as SWG;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,15 +28,42 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/lucky/number")
+     * @Route("/lucky/number",methods="GET")
      */
     public function numberAction()
     {
         $number = mt_rand(0, 100);
+        return new Response($number);
+    }
 
-        return new Response(
-            '<html><body>Lucky number: ' . $number . '</body></html>'
-        );
+
+    /**
+     * Finds and displays a user entity.
+     *
+     * @Route("/user/{id}", name="user_show1")
+     * @Method("GET")
+     * @SWG\Response(
+     *     response=200,
+     *     description="返回一个对像",
+     *     @SWG\Schema(
+     *         type="array",
+     *         @Model(type=User::class, groups={"full"})
+     *     )
+     * )
+     * @SWG\Parameter(
+     *     name="id",
+     *     in="query",
+     *     type="integer",
+     *     description="ID号"
+     * )
+     * @SWG\Tag(name="测试一下")
+     */
+    public function showAction(User $user)
+    {
+        $userData = new ArrayCollection();
+        $userData->add($user);
+        //return $userData->toArray();
+       return new Response($userData->toArray());
     }
 
     /**

@@ -16,8 +16,8 @@ class ProfileType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('realName',TextType::class)
-            ->add('age', IntegerType::class)
+        $builder->add('realName',TextType::class,[ 'required' => true,])
+            ->add('age', IntegerType::class,[ 'required' => true,])
             ->add('sex', ChoiceType::class, array(
                 'choices' => array('男' => '1', '女' => '2'),
                 'required' => true,

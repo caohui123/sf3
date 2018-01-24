@@ -40,6 +40,9 @@ class User
      */
     private $profile;
 
+    public function __toString(){
+        return 'User';
+    }
 
     /**
      * Get id

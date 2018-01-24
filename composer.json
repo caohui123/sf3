@@ -21,28 +21,30 @@
     },
     "require": {
         "php": ">=5.5.9",
+        "braincrafted/bootstrap-bundle": "~2.0",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
+        "easycorp/easy-security-bundle": "^1.0",
+        "egeloen/ckeditor-bundle": "^4.0",
+        "exercise/htmlpurifier-bundle": "^0.2.3",
+        "friendsofsymfony/rest-bundle": "^2.3",
         "incenteev/composer-parameter-handler": "^2.0",
+        "jms/serializer-bundle": "^2.3",
+        "jms/translation-bundle": "~1.1",
+        "knplabs/knp-menu-bundle": "^2.0",
+        "nelmio/api-doc-bundle": "^3.0",
+        "nelmio/cors-bundle": "^1.5",
+        "oyejorge/less.php": "~1.5",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^5.0.0",
+        "symfony/assetic-bundle": "^2.8",
         "symfony/monolog-bundle": "^3.1.0",
         "symfony/polyfill-apcu": "^1.0",
         "symfony/swiftmailer-bundle": "^2.6.4",
         "symfony/symfony": "3.4.*",
-        "twig/twig": "^1.0||^2.0",
-        "braincrafted/bootstrap-bundle": "~2.0",
-        "twbs/bootstrap": "3.0.*",
-        "oyejorge/less.php": "~1.5",
-        "jms/translation-bundle": "~1.1",
-        "knplabs/knp-menu-bundle": "^2.0",
-        "easycorp/easy-security-bundle": "^1.0",
-        "egeloen/ckeditor-bundle": "^4.0",
-        "exercise/htmlpurifier-bundle": "^0.2.3",
         "symfony/web-server-bundle": "^3.3",
-        "symfony/assetic-bundle": "^2.8",
-        "ninsuo/symfony-collection": "dev-master"
-
+        "twbs/bootstrap": "3.0.*",
+        "twig/twig": "^1.0||^2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -58,14 +60,10 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
         "post-install-cmd": [
-            "@symfony-scripts",
-            "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install",
-            "Fuz\\Symfony\\Collection\\ScriptHandler::postInstall"
+            "@symfony-scripts"
         ],
         "post-update-cmd": [
-            "@symfony-scripts",
-            "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install",
-            "Fuz\\Symfony\\Collection\\ScriptHandler::postUpdate"
+            "@symfony-scripts"
         ]
     },
     "config": {
