@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: "@AppBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -84,12 +85,6 @@ twig:
     #resources: ['bootstrap_3_layout.html.twig']
     resources: ['bootstrap_3_horizontal_layout.html.twig']
 
-sonata_block:
-    blocks:
-        # enable the SonataAdminBundle block
-        sonata.admin.block.admin_list:
-            contexts: [admin]
-
 nelmio_api_doc:
     areas:
             path_patterns: [ ^/api ]
@@ -135,3 +130,38 @@ fos_rest:
         formats:
             json: true
 
+
+sonata_block:
+    blocks:
+        # enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+
+sonata_admin:
+    title: 后台管理系统
+    dashboard:
+      blocks:
+                      # display two dashboard blocks
+          -
+            position: left
+            type: sonata.admin.block.admin_list
+            settings:
+                groups: [sonata_page1, sonata_page2]
+          -
+            position: right
+            type: sonata.admin.block.admin_list
+            settings:
+                groups: [sonata_page3]
+
+      groups:
+        sonata_page1:
+            items:
+                - app.admin.user
+
+        sonata_page2:
+            items:
+                - app.admin.user
+
+        sonata_page3:
+            items:
+                - app.admin.user

@@ -16,12 +16,13 @@ class ProfileType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('realName',TextType::class,[ 'required' => true,])
-            ->add('age', IntegerType::class,[ 'required' => true,])
+        $builder->add('realName',TextType::class,[ 'required' => true,'label' => '真实姓名'])
+            ->add('age', IntegerType::class,[ 'required' => true,  'label' => '年龄',])
             ->add('sex', ChoiceType::class, array(
                 'choices' => array('男' => '1', '女' => '2'),
                 'required' => true,
                 'empty_data' => 'Choose sex',
+                 'label' => '性别',
             ));
     }
 
