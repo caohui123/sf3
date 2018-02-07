@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\api;
 
 use AppBundle\Entity\User;
 use AppBundle\Form\UserType;
@@ -14,9 +14,6 @@ use Symfony\Component\HttpFoundation\Response;
 class TestController extends FOSRestController
 {
 
-    /**
-     * @Rest\Get("/test")
-     */
     public function indexAction(Request $request)
     {
         $data = ['hello' => 'world'];

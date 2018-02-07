@@ -44,7 +44,9 @@
         "symfony/symfony": "3.4.*",
         "symfony/web-server-bundle": "^3.3",
         "twbs/bootstrap": "3.0.*",
-        "twig/twig": "^1.0||^2.0"
+        "twig/twig": "^1.0||^2.0",
+        "sonata-project/admin-bundle": "^3.3",
+        "symfony/templating": "^4"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
