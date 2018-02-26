@@ -41,7 +41,7 @@ class User
     private $profile;
 
     public function __toString(){
-        return 'User';
+        return '用户管理';
     }
 
     /**

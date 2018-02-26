@@ -2,6 +2,7 @@ services:
     app.admin.user:
         class: AppBundle\Admin\UserAdmin
         arguments: [~, AppBundle\Entity\User, SonataAdminBundle:CRUD]
+        label: 用户管理
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Content",   label: 用户管理 }
         public: true

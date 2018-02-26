@@ -23,6 +23,7 @@ class UserAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
+        $this->classnameLabel = '用户管理';
         $listMapper
             //->add('id')
             ->add('name', '', ['label' => '呢称'])
